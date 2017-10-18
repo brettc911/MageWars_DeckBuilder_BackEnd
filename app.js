@@ -6,11 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 
-var URIstring =
-    process.env.MONGOLAB_URI ||
-    process.env.MONGOHQ_URL ||
-    `mongodb://localhost/magewars`
-
+var URIstring = 'mongodb://brettc911:magewars@ds119345.mlab.com:19345/magewars'
 
 
 mongoose.connect(URIstring, {useMongoClient: true}, (err, res) => {
