@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "prod",
+    "prebuild": "npm run build:clean",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
