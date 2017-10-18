@@ -4,7 +4,7 @@
   "description": "Mage wars app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./bin/www",
     "test": "node test.js"
   },
   "dependencies": {
