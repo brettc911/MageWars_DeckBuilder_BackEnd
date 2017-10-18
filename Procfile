@@ -1,1 +1,3 @@
-web: npm run start:prod
+web: node app.js
+worker: node app.js
+start: npm install
