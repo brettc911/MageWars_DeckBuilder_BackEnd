@@ -1,4 +1,4 @@
-let Card = require('../models/Card')
+let Card = require('../models/card')
 
 module.exports = {
 
