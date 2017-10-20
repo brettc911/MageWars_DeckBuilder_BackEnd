@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/createcard', function(req, res, next) {
-  res.render('createcard', null);
+  res.render('createCard', null);
 });
 
 module.exports = router;
