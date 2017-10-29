@@ -3,10 +3,8 @@ const mongoose = require('mongoose');
 var CardSchema = new mongoose.Schema({
 
   cardName: { type: String, requried: true },
-  
-  // cardImage: { type: String },
-  // primaryType: { type: String, requried: true },
-  // subType: { type: Array, default: [] },
+  primaryType: { type: String, requried: true },
+  subType: { type: Array, default: [] }
   // manaCost: { type: String, requried: true },
   // action: { type: String, requried: true },
   // castRange: { type: String, requried: true },
