@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const CardController = require('../controllers/CardController')
+const DeckController = require('../controllers/DeckController')
 const controllers = require('../controllers');
 
 

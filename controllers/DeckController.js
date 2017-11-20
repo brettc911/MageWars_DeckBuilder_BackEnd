@@ -1,9 +1,9 @@
-let Card = require('../models/card')
+let Deck = require('../models/card')
 
 module.exports = {
 
   find : (params, callback) => {
-    Card.find(params, (err, cards) => {
+    Deck.find(params, (err, cards) => {
       if (err) {
         callback(err, null)
         return
@@ -13,7 +13,7 @@ module.exports = {
   },
 
   findById: (id, callback) => {
-    Card.findById(id, (err, card)=> {
+    Deck.findById(id, (err, card)=> {
       if (err) {
         callback(err, null)
         return
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   create: (params, callback) => {
-    Card.create(params, (err, card) => {
+    Deck.create(params, (err, card) => {
       if (err) {
         callback(err, null)
         return
@@ -33,7 +33,7 @@ module.exports = {
   },
 
   update: (id, params, callback) => {
-    Card.findByIdAndUpdate(id, params, {new: true}, (err, card) => {
+    Deck.findByIdAndUpdate(id, params, {new: true}, (err, card) => {
       if (err) {
         callback(err, null)
         return
@@ -43,7 +43,7 @@ module.exports = {
   },
 
   destroy: (id, callback) => {
-    Card.findByIdAndRemove(id, (err, card) => {
+    Deck.findByIdAndRemove(id, (err, card) => {
       if (err) {
         callback(err, null)
         return
