@@ -88,6 +88,48 @@ router.post('/:resource', (req, res, next) => {
 
 })
 
+
+
+
+
+
+router.post('/:resource/:id', (req, res, next) => {
+  var resource = req.params.resource
+  let id = req.params.id
+  let controller = controllers[resource]
+
+  if (controller == null) {
+    res.json({
+      confirmaiton: 'fail',
+      message: 'Invalid Resource Request: ' + resource
+    })
+    return
+  }
+
+  controller.update(id, req.body, (err, result) => {
+    console.log(req.body)
+    if (err) {
+      res.json({
+        confirmaiton: 'fail',
+        message: err
+      })
+    }
+    res.json({
+      confirmaiton: 'success',
+      result: result
+    })
+  })
+
+})
+
+
+
+
+
+
+
+
+
 router.delete('/:resource/:id', (req, res, next) => {
   var resource = req.params.resource
   let id = req.params.id
