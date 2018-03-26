@@ -14,7 +14,7 @@ router.get('/:resource', (req, res, next) => {
       confirmaiton: 'fail',
       message: 'Invalid Resource Request: ' + resource
     })
-    return
+    return  
   }
 
   controller.find(req.query, (err, results) => {
