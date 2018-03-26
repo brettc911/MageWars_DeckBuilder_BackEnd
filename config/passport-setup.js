@@ -7,6 +7,7 @@ const keys = require('./keys')
 passport.use(
   new GoogleStrategy({
     callbackURL: '/auth/google/redirect',
+    // temporary keys
       clientID: keys.google.clientID,
       clientSecret: keys.google.clientSecret
     // clientID: process.env.CLIENT_ID,
