@@ -1,4 +1,4 @@
-let Deck = require('../models/deck')
+const Deck = require('../models/deck')
 
 module.exports = {
 
