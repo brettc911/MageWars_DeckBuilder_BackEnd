@@ -4,12 +4,22 @@ const User = require('../models/user')
 
 const keys = require('./keys')
 
+
+passport.serializeUser((user, done) => {
+  done(null, user.id)
+})
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => done(null, user))
+})
+
+
 passport.use(
   new GoogleStrategy({
     callbackURL: '/auth/google/redirect',
     // temporary keys
-      clientID: keys.google.clientID,
-      clientSecret: keys.google.clientSecret
+    clientID: keys.google.clientID,
+    clientSecret: keys.google.clientSecret
     // clientID: process.env.CLIENT_ID,
     // clientSecret: process.env.CLIENT_SECRET
   }, function(accessToken, refreshToken, profile, done) {
@@ -20,6 +30,7 @@ passport.use(
       if (existingUser) {
         // user exists
         console.log('user ' + existingUser);
+        done(null, existingUser)
       } else {
         // user does not exist, create new user
         new User({
@@ -27,7 +38,7 @@ passport.use(
           googleId: profile.id,
           decks: []
         }).save()
-        .then(newUser => console.log(newUser))
+        .then(newUser => done(null, newUser))
       }
     })
   })
