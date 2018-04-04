@@ -10,9 +10,7 @@ const passportSetup = require('./config/passport-setup')
 const passport = require('passport')
 const keys = require('./config/keys')
 
-const URIstring =
-    process.env.PROD_MONGODB ||
-    `mongodb://localhost/magewars`
+const URIstring = keys.mongoURI
 
 mongoose.connect(URIstring, {useMongoClient: true}, (err, res) => {
   if (err) {
@@ -45,7 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: [keys.session.cookieKey]
+    keys: [keys.cookieKey]
 }))
 
 // initialize passport

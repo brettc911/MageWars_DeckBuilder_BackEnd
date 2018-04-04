@@ -18,10 +18,8 @@ passport.use(
   new GoogleStrategy({
     callbackURL: '/auth/google/redirect',
     // temporary keys
-    clientID: keys.google.clientID,
-    clientSecret: keys.google.clientSecret
-    // clientID: process.env.CLIENT_ID,
-    // clientSecret: process.env.CLIENT_SECRET
+    clientID: keys.googleClientID,
+    clientSecret: keys.googleClientSecret
   }, function(accessToken, refreshToken, profile, done) {
 
     // check if user already exists

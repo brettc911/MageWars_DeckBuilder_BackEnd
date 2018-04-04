@@ -1,0 +1,61 @@
+/*
+______FONTS_______
+------------------
+*/
+#fonts{
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Cinzel', serif;
+}
+
+
+/*______COLORS______
+--------------------
+*/
+#colors{
+  color: #fff;
+  color: #67FF83;
+  color: #303030;
+}
+
+
+/*
+______CONTAINERS________
+------------------------
+*/
+.container{
+  position: relative;
+  max-width: 1440px;
+  margin: auto;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+
+/*
+______PRIMARY TABLE_______
+--------------------------
+*/
+.primary-table{
+  background: #fff;
+
+}
+.primary-table td {
+  padding: 5px;
+}
+.primary-table th {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+}
+.primary-table td {
+  padding: 5px 20px;
+}
+
+
+
+
+
+.side_by_side {
+  display: flex;
+  flex-direction: row;
+}

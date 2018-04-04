@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="395px" height="382px" viewBox="0 0 395 382" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-Page" transform="translate(-754.000000, -340.000000)">
+            <g id="Logo" transform="translate(763.000000, 277.000000)">
+                <text id="M" font-family="CinzelDecorative-Bold, Cinzel Decorative" font-size="174" font-weight="bold" fill="#67FF83">
+                    <tspan x="67.284" y="267">M</tspan>
+                </text>
+                <text id="S" font-family="CinzelDecorative-Black, Cinzel Decorative" font-size="331" font-weight="700" fill="#67FF83">
+                    <tspan x="171.4495" y="410">S</tspan>
+                </text>
+                <path d="M1,73 L301,73" id="Line" stroke="#67FF83" stroke-width="20" stroke-linecap="square"></path>
+                <path d="M3,350 L173,350" id="Line" stroke="#67FF83" stroke-width="20" stroke-linecap="square"></path>
+                <path d="M1,73 L1,350" id="Line-2" stroke="#67FF83" stroke-width="20" stroke-linecap="square"></path>
+                <path d="M301,73 L301,178" id="Line-2" stroke="#67FF83" stroke-width="20" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>
