@@ -37,7 +37,6 @@ ______PRIMARY TABLE_______
 */
 .primary-table{
   background: #fff;
-
 }
 .primary-table td {
   padding: 5px;
@@ -49,6 +48,10 @@ ______PRIMARY TABLE_______
 }
 .primary-table td {
   padding: 5px 20px;
+}
+.primary-table tr:hover {
+  background-color: #67FF83;
+
 }
 
 

@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-
 import TableRow from './TableRow'
+import CardModal from './CardModal'
 
 class Table extends Component {
+
+
+  // handleModal = e => {
+  //   this.props.mousePos
+  //   e.persist()
+  //   let xPos = e.pageX
+  //   let yPos = e.pageY
+  //   if (xPos > 645) {
+  //     this.setState({modalStyle: {display: 'none'}})
+  //   } else {
+  //     this.setState({modalStyle: {left: `${xPos + 50}px`, top: `${yPos - 200}px`}})
+  //   }
+  // }
 
   renderRows() {
     let rows = this.props.cards.map((card, i) => {
@@ -12,6 +25,7 @@ class Table extends Component {
           key={i}
           addCard={this.props.addCard}
           card={card}
+          handleModal={this.handleModal}
         />
       )
     })
@@ -19,6 +33,19 @@ class Table extends Component {
   }
 
   render() {
+
+    let renderModal = () => {
+      let xPos = this.props.mousePos.xPos
+      let yPos = this.props.mousePos.yPos
+      let targetId = this.props.mousePos.targetId
+      if (!targetId) {
+        return {display: 'none'}
+      } else {
+        return {left: `${xPos + 50}px`, top: `${yPos - 200}px`}
+      }
+    }
+
+
     return (
       <table className='primary-table'>
         <tbody>
@@ -32,6 +59,10 @@ class Table extends Component {
           </tr>
           {this.renderRows()}
         </tbody>
+        <CardModal
+          modalStyle={renderModal()}
+          modalImage = {this.props.mousePos.targetId}
+        />
       </table>
     )
   }

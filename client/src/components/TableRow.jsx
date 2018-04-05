@@ -17,7 +17,7 @@ class TableRow extends Component {
   render() {
     let card = this.props.card
     return (
-      <tr>
+      <tr onMouseMove={this.props.handleModal} id={card._id}>
         <td><button onClick={this.props.addCard} id={card._id}>+</button> {card.cardName}</td>
         <td>{card.primaryType}</td>
         <Center>{card.manaCost}</Center>

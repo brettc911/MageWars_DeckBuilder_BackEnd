@@ -35,7 +35,8 @@ class Builder extends Component {
         deckName: '',
         mage: '',
         cards: []
-      }
+      },
+      mousePos: {}
     }
   }
 
@@ -205,9 +206,15 @@ handleSaveDeck = e => {
   this.props.autoSave(deck, id)
 }
 
+// Track X, Y pos to determine whether or not to display card info Modal
+handleMouseTracker = e => {
+  e.persist()
+  this.setState({mousePos: {xPos: e.pageX, yPos: e.pageY, targetId: e.target.parentNode.id}})
+}
+
   render() {
     return (
-      <div className='container'>
+      <div className='container' onMouseMove={this.handleMouseTracker}>
         <button onClick={this.clickme}>View State</button>
         <Filter
           searchName={this.handleFiltering}
@@ -221,6 +228,7 @@ handleSaveDeck = e => {
             cards={this.state.filteredCards}
             addCard={this.addCard}
             sortTable={this.sortTable}
+            mousePos={this.state.mousePos}
             /> :
             <H1>Loading...</H1>
           }
