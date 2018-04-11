@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const CardController = require('../controllers/CardController')
 const DeckController = require('../controllers/DeckController')
+const UserController = require('../controllers/UserController')
 const controllers = require('../controllers');
 
 
@@ -14,7 +15,7 @@ router.get('/:resource', (req, res, next) => {
       confirmaiton: 'fail',
       message: 'Invalid Resource Request: ' + resource
     })
-    return  
+    return
   }
 
   controller.find(req.query, (err, results) => {
