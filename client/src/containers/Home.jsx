@@ -10,7 +10,7 @@ import logo from '../styles/images/logo.svg'
 // Redux:
 import { connect } from 'react-redux'
 import userReducer from '../reducers/cardReducer';
-import { fetchCurrentUser } from '../actions'
+import { fetchUser } from '../actions'
 
 // BEGIN STYING
 // _________________________________________________________
@@ -19,21 +19,17 @@ import { fetchCurrentUser } from '../actions'
 class Home extends Component {
 
   componentDidMount(){
-    let params = queryString.parse(this.props.location.search)
-    this.props.fetchCurrentUser(params.id)
-  }
-
-  hello = () => {
-    console.log(this.props);
-    return (
-      <h1>Welcome</h1>
-    )
+    // let params = queryString.parse(this.props.location.search)
+    this.props.fetchUser()
   }
 
   render() {
+
+    let user = !this.props.currentUser ? null : this.props.currentUser.userName
+
     return (
       <div>
-        {this.hello()}
+        <h1>Welcome {user}</h1>
       </div>
     );
   }
@@ -45,4 +41,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchCurrentUser})(Home)
+export default connect(mapStateToProps, {fetchUser})(Home)

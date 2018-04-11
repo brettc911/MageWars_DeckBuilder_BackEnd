@@ -1,23 +1,12 @@
+import axios from 'axios';
 import {
-  FETCH_CURRENT_USER
+  FETCH_USER
 
 } from './types'
 
 
-export const fetchCurrentUser = (id) => {
-  return (dispatch) => {
-    console.log('here');
-    fetch(`/api/user/${id}`, {
-      method: 'GET',
-      // credentials: 'include'
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.result);
-      return dispatch({
-        type: FETCH_CURRENT_USER,
-        payload: data.results
-      })
-    })
-  }
-}
+export const fetchUser = () => async dispatch => {
+  let res = await axios.get(`/auth/currentUser`)
+  console.log(res.data);
+  dispatch({ type: FETCH_USER, payload: res.data });
+};

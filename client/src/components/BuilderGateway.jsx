@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // Redux:
 import { connect } from 'react-redux'
 import deckReducer from '../reducers/deckReducer';
+import userReducer from '../reducers/userReducer';
 import { createDeck } from '../actions'
 import { fetchDecks } from '../actions'
 
@@ -27,7 +28,12 @@ class BuilderGateway extends Component {
     }
   }
 
+  componentDidMount(){
+    !this.props.user ? this.props.history.push('/login') : null
+  }
+
   handleDeckNameChange = (e) => {
+    console.log(this.props);
     this.setState({ deckName: e.target.value})
   }
   handleDeckMageChange = (e) => {
@@ -57,6 +63,9 @@ class BuilderGateway extends Component {
 }
 
 const mapStateToProps = state => {
-  return {decks: state.decks.deckList}
+  return {
+    decks: state.decks.deckList,
+    user: state.users.user
+  }
 }
 export default connect(mapStateToProps, { fetchDecks, createDeck })(BuilderGateway)
