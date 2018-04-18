@@ -26,7 +26,12 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res, next)
 })
 
 router.get('/currentUser', (req, res, next) => {
-  res.json(req.user)
+  if (req.user) {
+    res.json(req.user)
+  } else {
+    res.redirct('/login')
+  }
+
 })
 
 

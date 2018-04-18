@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import queryString from 'query-string';
 
 
 // Import images
@@ -19,13 +18,12 @@ import { fetchUser } from '../actions'
 class Home extends Component {
 
   componentDidMount(){
-    // let params = queryString.parse(this.props.location.search)
     this.props.fetchUser()
   }
 
   render() {
 
-    let user = !this.props.currentUser ? null : this.props.currentUser.userName
+    let user = !this.props.user ? null : this.props.user.userName
 
     return (
       <div>
@@ -37,7 +35,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.users.currentUser
+    user: state.users.user
   }
 }
 

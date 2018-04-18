@@ -5,7 +5,9 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import cardReducer from '../reducers/cardReducer';
 import deckReducer from '../reducers/deckReducer';
+import userReducer from '../reducers/userReducer';
 import { fetchCards } from '../actions'
+import { fetchUser } from '../actions'
 import { autoSave } from '../actions'
 
 // Import Components
@@ -33,6 +35,7 @@ class Builder extends Component {
       currentDeck: {
         _id: '',
         deckName: '',
+        owner: '',
         mage: '',
         cards: []
       },
@@ -91,17 +94,17 @@ class Builder extends Component {
 
 // Table Functions:
   renderTable() {
-    if (this.state.allCards !== null) {
-      return (
-        <Table
-          cards={this.state.filteredCards}
-          addCard={this.addCard}
-          sortTable={this.sortTable}
-        />
-      )
-    }
-    return <H1>Loading...</H1>
+
+    return this.state.allCards ?
+      <Table
+      cards={this.state.filteredCards}
+      addCard={this.addCard}
+      sortTable={this.sortTable}
+      mousePos={this.state.mousePos}
+      /> :
+      <H1>Loading...</H1>
   }
+
 
   sortTable = column => {
     let cards = this.state.filteredCards
@@ -222,21 +225,13 @@ handleMouseTracker = e => {
           selectPrimaryType={this.handleFiltering}
         />
         <div className="side_by_side">
-          {
-            this.state.allCards ?
-            <Table
-            cards={this.state.filteredCards}
-            addCard={this.addCard}
-            sortTable={this.sortTable}
-            mousePos={this.state.mousePos}
-            /> :
-            <H1>Loading...</H1>
-          }
+          { this.renderTable() }
           <DeckInfo
             deckNameChange={this.handleDeckNameChange}
             mageChange={this.handleMageChange}
             deckName={this.state.currentDeck.deckName}
             mage={this.state.currentDeck.mage}
+            owner={this.state.currentDeck.owner}
             cards={this.state.currentDeck.cards}
             removeCard={this.removeCard}
             saveDeck={this.handleSaveDeck}
@@ -250,7 +245,8 @@ handleMouseTracker = e => {
 const mapStateToProps = state => {
   return {
     cards: state.cards.cardList,
-    currentDeck: state.decks.currentDeck
+    currentDeck: state.decks.currentDeck,
+    user: state.users.user
   }
 }
-export default connect(mapStateToProps, { fetchCards, autoSave })(Builder)
+export default connect(mapStateToProps, { fetchCards, autoSave, fetchUser })(Builder)

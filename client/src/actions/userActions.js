@@ -7,6 +7,5 @@ import {
 
 export const fetchUser = () => async dispatch => {
   let res = await axios.get(`/auth/currentUser`)
-  console.log(res.data);
   dispatch({ type: FETCH_USER, payload: res.data });
 };
